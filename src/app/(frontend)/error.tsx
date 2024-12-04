@@ -1,12 +1,17 @@
 "use client";
 
-// biome-ignore lint/suspicious/noShadowRestrictedNames: <explanation>
-export default function Error({ error, reset }: { error: Error; reset: () => void }) {
+export default function ErrorFallback({
+  error,
+  reset,
+}: {
+  error: Error & { digest?: string };
+  reset: () => void;
+}) {
   return (
-    <div className="m-4 font-bold">
+    <div>
+      <h2>Something went wrong!</h2>
       <p>{error.message}</p>
-      <p>{JSON.stringify(error, null, 2)}</p>
-      <button type="button" className="rounded-lg bg-blue-500 px-2 py-1 text-white" onClick={() => reset()}>
+      <button type="button" onClick={() => reset()}>
         Try again
       </button>
     </div>
