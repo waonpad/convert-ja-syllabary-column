@@ -1,3 +1,4 @@
+import { ConvertJaSyllabaryColumn } from "@/components/convert-ja-syllabary-column";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -9,7 +10,8 @@ export const metadata: Metadata = {
 export default async function Page() {
   return (
     <div>
-      <h1>/</h1>
+      <ConvertJaSyllabaryColumn />
+      {/* TODO: 画面が寂しいのでどうにかしたい */}
     </div>
   );
 }
