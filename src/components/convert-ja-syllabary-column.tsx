@@ -115,16 +115,27 @@ export const ConvertJaSyllabaryColumn = () => {
             <span className="rounded-md border-2 border-black text-center text-4xl">🇮🇳</span>
           )}
         </div>
-        <div className="flex justify-end gap-2">
-          <ExternalLink
-            href={`https://twitter.com/intent/tweet?text=${encodeURIComponent(shareText)}`}
-            className="rounded-md border-2 border-black px-4 py-2"
-          >
-            Xで共有
-          </ExternalLink>
-          <button type="submit" className="rounded-md border-2 border-black px-4 py-2">
-            投稿
-          </button>
+        <div className="flex justify-between">
+          <span className="inline-flex items-end">
+            元ネタ：
+            <ExternalLink
+              href="https://anond.hatelabo.jp/20240801082705"
+              className="text-blue-500 underline visited:text-purple-600 hover:text-blue-600"
+            >
+              全部ア段にすると古典インドっぽくなる言葉
+            </ExternalLink>
+          </span>
+          <div className="flex gap-2">
+            <ExternalLink
+              href={`https://twitter.com/intent/tweet?text=${encodeURIComponent(shareText)}`}
+              className="ml-auto rounded-md border-2 border-black px-4 py-2"
+            >
+              Xで共有
+            </ExternalLink>
+            <button type="submit" className="rounded-md border-2 border-black px-4 py-2">
+              投稿
+            </button>
+          </div>
         </div>
       </div>
     </form>
