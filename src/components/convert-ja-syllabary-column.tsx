@@ -120,7 +120,7 @@ export const ConvertJaSyllabaryColumn = () => {
             元ネタ：
             <ExternalLink
               href="https://anond.hatelabo.jp/20240801082705"
-              className="text-blue-500 underline visited:text-purple-600 hover:text-blue-600"
+              className="text-blue-500 underline hover:text-blue-600"
             >
               全部ア段にすると古典インドっぽくなる言葉
             </ExternalLink>
