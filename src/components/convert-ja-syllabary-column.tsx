@@ -108,7 +108,7 @@ export const ConvertJaSyllabaryColumn = () => {
               setConverted(convertedValue);
             }}
           />
-          <span className="text-center font-bold text-4xl">↓</span>
+          <div className="text-center font-bold text-4xl">↓</div>
           {converted ? (
             <span className="whitespace-pre rounded-md border-2 border-black p-2">{converted}</span>
           ) : (
