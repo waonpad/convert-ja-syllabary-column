@@ -10,9 +10,14 @@ export const metadata: Metadata = {
 
 export default async function Page() {
   return (
-    <div>
+    <div className="flex flex-col gap-8">
       <ConvertJaSyllabaryColumn />
-      <ConvertedPostList />
+      <section className="flex flex-col gap-2">
+        <header>
+          <h1 className="font-bold text-lg">様々な古典インド</h1>
+        </header>
+        <ConvertedPostList />
+      </section>
     </div>
   );
 }
