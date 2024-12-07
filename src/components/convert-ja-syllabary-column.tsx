@@ -4,14 +4,11 @@ import { createConvertedPost } from "@/actions/create-converted-post";
 import { clientEnv } from "@/config/env/client";
 import { convertJaSyllabaryColumnPartOfCharacters } from "@/lib/convert-ja-syllabary/convert-column";
 import { computeTextareaHeightByLines } from "@/utils";
-import { useRouter } from "next/navigation";
 import { type FormEvent, useRef, useState } from "react";
 import { ExternalLink } from "./external-link";
 
 // TODO: もっといい感じにする
 export const ConvertJaSyllabaryColumn = () => {
-  const router = useRouter();
-
   const textareaRef = useRef<HTMLTextAreaElement | null>(null);
   const columnSelectRef = useRef<HTMLSelectElement | null>(null);
   const [converted, setConverted] = useState<string>("");
@@ -38,9 +35,7 @@ export const ConvertJaSyllabaryColumn = () => {
       return;
     }
 
-    // 保存したデータを表示するためにリフレッシュ
-    router.refresh();
-
+    // revalidateした時点でサイレンダリングが走るのでrouter.refresh()は不要
     // columnの選択はそのままにする
 
     // textareaの入力をリセット
