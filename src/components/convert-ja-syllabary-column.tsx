@@ -123,11 +123,11 @@ export const ConvertJaSyllabaryColumn = () => {
           <div className="flex gap-2">
             <ExternalLink
               href={`https://twitter.com/intent/tweet?text=${encodeURIComponent(shareText)}`}
-              className="ml-auto flex-auto rounded-md border-2 border-black px-4 py-2 text-center"
+              className="ml-auto flex-auto rounded-md border-2 border-black px-5 py-2 text-center"
             >
               Xで共有
             </ExternalLink>
-            <button type="submit" className="flex-auto rounded-md border-2 border-black px-4 py-2">
+            <button type="submit" className="flex-auto rounded-md border-2 border-black px-8 py-2">
               投稿
             </button>
           </div>
