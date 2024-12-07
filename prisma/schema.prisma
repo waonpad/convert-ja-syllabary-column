@@ -5,13 +5,12 @@ generator client {
 datasource db {
   provider = "postgresql"
   url      = env("DB_PRISMA_URL")
-  directUrl = env("DB_URL_NON_POOLING")
 }
 
 model Post {
-  id      String   @id @default(cuid())
-  input   String
-  column String
+  id        String   @id @default(cuid())
+  input     String
+  column    String
   converted String
   createdAt DateTime @default(now())
 }
