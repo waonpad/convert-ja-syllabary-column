@@ -110,8 +110,8 @@ export const ConvertJaSyllabaryColumn = () => {
             <span className="rounded-md border-2 border-black text-center text-4xl">🇮🇳</span>
           )}
         </div>
-        <div className="flex justify-between">
-          <span className="inline-flex items-end">
+        <div className="flex flex-col justify-between gap-2 sm:flex-row">
+          <span className="inline-flex items-end text-sm sm:text-base">
             元ネタ：
             <ExternalLink
               href="https://anond.hatelabo.jp/20240801082705"
@@ -123,11 +123,11 @@ export const ConvertJaSyllabaryColumn = () => {
           <div className="flex gap-2">
             <ExternalLink
               href={`https://twitter.com/intent/tweet?text=${encodeURIComponent(shareText)}`}
-              className="ml-auto rounded-md border-2 border-black px-4 py-2"
+              className="ml-auto flex-auto rounded-md border-2 border-black px-4 py-2 text-center"
             >
               Xで共有
             </ExternalLink>
-            <button type="submit" className="rounded-md border-2 border-black px-4 py-2">
+            <button type="submit" className="flex-auto rounded-md border-2 border-black px-4 py-2">
               投稿
             </button>
           </div>
