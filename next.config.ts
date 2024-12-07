@@ -18,6 +18,7 @@ const nextConfig = (
   experimental: {
     typedRoutes: true,
     dynamicIO: true,
+    reactCompiler: true,
   },
   pageExtensions: ["ts", "tsx"].flatMap((extension) => {
     const isDevServer = phase === PHASE_DEVELOPMENT_SERVER;
