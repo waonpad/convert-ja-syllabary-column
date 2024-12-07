@@ -2,9 +2,7 @@ import { prisma } from "@/lib/prisma/client";
 
 export const ConvertedPostList = async () => {
   const posts = await prisma.post.findMany({
-    orderBy: {
-      createdAt: "desc",
-    },
+    orderBy: { createdAt: "desc" },
   });
 
   return (
