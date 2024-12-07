@@ -1,9 +1,11 @@
 "use server";
 
+import { CACHE_TAG_POSTS } from "@/caching/tags";
 import { convertJaSyllabaryColumnPartOfCharacters } from "@/lib/convert-ja-syllabary/convert-column";
 import { prisma } from "@/lib/prisma/client";
 import { type CreatePost, createPostSchema } from "@/schemas/posts";
 import type { Post } from "@prisma/client";
+import { revalidateTag } from "next/cache";
 import type { typeToFlattenedError } from "zod";
 
 export const createConvertedPost = async (
@@ -33,6 +35,8 @@ export const createConvertedPost = async (
       converted,
     },
   });
+
+  revalidateTag(CACHE_TAG_POSTS);
 
   return {
     data: createdPost,

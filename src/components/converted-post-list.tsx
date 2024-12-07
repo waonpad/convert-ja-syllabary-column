@@ -1,9 +1,22 @@
+import { CACHE_TAG_POSTS } from "@/caching/tags";
 import { prisma } from "@/lib/prisma/client";
+import { cacheTag } from "next/dist/server/use-cache/cache-tag";
 
-export const ConvertedPostList = async () => {
+const getPosts = async () => {
+  "use cache";
+  cacheTag(CACHE_TAG_POSTS);
+
   const posts = await prisma.post.findMany({
     orderBy: { createdAt: "desc" },
   });
+
+  return posts;
+};
+
+export const ConvertedPostList = async () => {
+  "use cache";
+
+  const posts = await getPosts();
 
   return (
     <>

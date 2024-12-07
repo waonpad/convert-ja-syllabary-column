@@ -10,6 +10,8 @@ export const metadata: Metadata = {
 };
 
 export default async function Page() {
+  "use cache";
+
   return (
     <div className="flex flex-col gap-8">
       <ConvertJaSyllabaryColumn />
