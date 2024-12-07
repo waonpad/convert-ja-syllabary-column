@@ -105,7 +105,7 @@ export const ConvertJaSyllabaryColumn = () => {
           />
           <div className="text-center font-bold text-4xl">↓</div>
           {converted ? (
-            <span className="whitespace-pre rounded-md border-2 border-black p-2">{converted}</span>
+            <span className="whitespace-pre-wrap rounded-md border-2 border-black p-2">{converted}</span>
           ) : (
             <span className="rounded-md border-2 border-black text-center text-4xl">🇮🇳</span>
           )}
