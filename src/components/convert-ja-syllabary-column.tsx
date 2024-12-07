@@ -7,7 +7,6 @@ import { computeTextareaHeightByLines } from "@/utils";
 import { type FormEvent, useRef, useState } from "react";
 import { ExternalLink } from "./external-link";
 
-// TODO: もっといい感じにする
 export const ConvertJaSyllabaryColumn = () => {
   const textareaRef = useRef<HTMLTextAreaElement | null>(null);
   const columnSelectRef = useRef<HTMLSelectElement | null>(null);
@@ -17,7 +16,6 @@ export const ConvertJaSyllabaryColumn = () => {
   const [error, setError] = useState<Error | null>(null);
   if (error) throw error;
 
-  // TODO: 良い感じにする
   const shareText = `${converted}\n\n${clientEnv.NEXT_PUBLIC_APP_NAME}\n${clientEnv.NEXT_PUBLIC_HOST_URL}`;
 
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
