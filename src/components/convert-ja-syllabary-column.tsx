@@ -85,6 +85,12 @@ export const ConvertJaSyllabaryColumn = () => {
             rows={1}
             className="rounded-md border-2 border-black p-2"
             placeholder="クソアプリ"
+            onKeyDown={(event) => {
+              // sift + enterでsubmit
+              if (event.key === "Enter" && event.shiftKey) {
+                event.currentTarget.form?.requestSubmit();
+              }
+            }}
             onChange={(event) => {
               const element = event.target;
 
