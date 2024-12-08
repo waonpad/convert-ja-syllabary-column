@@ -3,7 +3,13 @@ import { z } from "zod";
 
 export const serverEnv = createEnv({
   server: {
+    /**
+     * アプリケーションの実行環境
+     */
     APP_ENV: z.enum(["development", "production", "test"]),
+    /**
+     * データベースのURL
+     */
     DATABASE_URL: z.string(),
   },
   experimental__runtimeEnv: {},
