@@ -17,4 +17,4 @@ const adapter = new PrismaNeon(pool);
 const globalForPrisma = global as unknown as { prisma: PrismaClient };
 export const prisma = globalForPrisma.prisma || new PrismaClient({ adapter });
 
-if (serverEnv.APP_ENV === "development") globalForPrisma.prisma = prisma;
+if (serverEnv.APP_ENV !== "production") globalForPrisma.prisma = prisma;
