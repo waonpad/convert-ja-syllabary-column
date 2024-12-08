@@ -12,7 +12,7 @@ export default async function Page() {
   "use cache";
 
   return (
-    <div className="flex flex-col gap-8">
+    <div className="flex flex-col gap-6">
       <ConvertJaSyllabaryColumn />
       <ConvertedPostListContainer />
     </div>
