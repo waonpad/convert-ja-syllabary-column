@@ -6,7 +6,7 @@ import { useState } from "react";
 /**
  * 拾い忘れたエラー, 非同期処理, イベントハンドラ内のエラーをキャッチする
  */
-export const WatchUnhandledError = () => {
+export const useWatchUnhandledError = () => {
   const [error, setError] = useState<Error | null>(null);
 
   if (error) throw error;
@@ -22,6 +22,4 @@ export const WatchUnhandledError = () => {
     (event) => setError(event.reason instanceof Error ? event.reason : new Error(JSON.stringify(event.reason))),
     [],
   );
-
-  return <></>;
 };
