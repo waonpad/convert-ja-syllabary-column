@@ -139,7 +139,7 @@ export const ConvertJaSyllabaryColumn = () => {
               全部ア段にすると古典インドっぽくなる言葉
             </ExternalLink>
           </span>
-          <div className="flex gap-2">
+          <div className="flex gap-1">
             <ExternalLink
               href={`https://twitter.com/intent/tweet?text=${encodeURIComponent(shareText)}`}
               className="ml-auto flex-auto rounded-md border-2 border-black px-5 py-2 text-center"
