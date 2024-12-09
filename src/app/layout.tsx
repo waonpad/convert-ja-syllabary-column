@@ -1,6 +1,5 @@
 import "@/styles/globals.css";
 import { clientEnv } from "@/config/env/client";
-import { AppProvider } from "@/providers/app-provider";
 import type { Metadata } from "next";
 import type { ReactNode } from "react";
 
@@ -16,9 +15,7 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="ja">
-      <body className="flex min-h-dvh flex-col">
-        <AppProvider>{children}</AppProvider>
-      </body>
+      <body className="flex min-h-dvh flex-col">{children}</body>
     </html>
   );
 }
