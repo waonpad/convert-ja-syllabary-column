@@ -9,8 +9,8 @@ export default async function Layout({ children }: { children: ReactNode }) {
   return (
     <>
       <AppProvider>
-        <main className="mx-auto flex w-[95%] max-w-screen-lg grow flex-col py-2">{children}</main>
-        <footer className="mx-auto flex w-[95%] max-w-screen-lg flex-col justify-center gap-1 py-2 sm:flex-row sm:gap-3">
+        <main className="mx-auto flex w-[96%] max-w-screen-lg grow flex-col py-2">{children}</main>
+        <footer className="mx-auto flex w-[96%] max-w-screen-lg flex-col justify-center gap-1 py-2 sm:flex-row sm:gap-3">
           <ExternalLink
             href={`https://github.com/${clientEnv.NEXT_PUBLIC_GITHUB_REPOSITORY}`}
             className="text-center text-blue-500 text-sm underline hover:text-blue-600 sm:text-base"
