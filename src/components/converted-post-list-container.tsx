@@ -13,9 +13,10 @@ export const ConvertedPostListContainer = async () => {
       <Suspense fallback={<div>読み込み中...</div>}>
         <ConvertedPostList />
       </Suspense>
-      <div className="rounded-md border-2 border-black p-4 text-center font-bold">
+      {/* ページトップに飛ぶ */}
+      <a href="#top" className="rounded-md border-2 border-black p-4 text-center font-bold">
         <span>古典インドを投稿してみよう！</span>
-      </div>
+      </a>
     </section>
   );
 };
