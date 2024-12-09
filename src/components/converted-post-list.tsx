@@ -1,6 +1,8 @@
 import { CACHE_TAG_POSTS } from "@/caching/tags";
 import { prisma } from "@/lib/prisma/client";
 import { cacheTag } from "next/dist/server/use-cache/cache-tag";
+import { ConvertedPostListItem } from "./converted-post-list-item";
+import { ConvertedPostListItemsOptimistic } from "./converted-post-list-items-optimistic";
 
 const getPosts = async () => {
   "use cache";
@@ -10,26 +12,20 @@ const getPosts = async () => {
     orderBy: { createdAt: "desc" },
   });
 
-  return posts;
+  return { posts, getPostsAt: Date.now() };
 };
 
 export const ConvertedPostList = async () => {
   "use cache";
 
-  const posts = await getPosts();
+  const { posts, getPostsAt } = await getPosts();
 
   return (
     <>
       <ol className="converted-post-list flex flex-col gap-2">
+        <ConvertedPostListItemsOptimistic getPostsAt={getPostsAt} />
         {posts.map((post) => (
-          <li key={post.id} className="rounded-md border-[1.5px] border-black p-2">
-            <input type="checkbox" id={`toggle-${post.id}`} className="hidden" />
-            <label htmlFor={`toggle-${post.id}`} className="block cursor-pointer">
-              {/* 変換前は最初非表示 */}
-              <span className="post-input hidden whitespace-pre-wrap">{post.input}</span>
-              <span className="post-converted whitespace-pre-wrap">{post.converted}</span>
-            </label>
-          </li>
+          <ConvertedPostListItem key={post.id} post={post} />
         ))}
       </ol>
       <style>

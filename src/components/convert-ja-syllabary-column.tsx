@@ -2,8 +2,10 @@
 
 import { createConvertedPost } from "@/actions/create-converted-post";
 import { clientEnv } from "@/config/env/client";
+import { useOptimisticPosts } from "@/hooks/use-optimistic-posts";
 import { convertJaSyllabaryColumnPartOfCharacters } from "@/lib/convert-ja-syllabary/convert-column";
 import { computeTextareaHeightByLines } from "@/utils";
+import type { Post } from "@prisma/client";
 import { type FormEvent, useRef, useState } from "react";
 import { ExternalLink } from "./external-link";
 
@@ -11,6 +13,7 @@ export const ConvertJaSyllabaryColumn = () => {
   const textareaRef = useRef<HTMLTextAreaElement | null>(null);
   const columnSelectRef = useRef<HTMLSelectElement | null>(null);
   const [converted, setConverted] = useState<string>("");
+  const { addPost } = useOptimisticPosts();
 
   // errorがsetされたらErrorBoundaryに渡す
   const [error, setError] = useState<Error | null>(null);
@@ -23,6 +26,18 @@ export const ConvertJaSyllabaryColumn = () => {
     event.preventDefault();
 
     if (!confirm("投稿しますか？\nめんどくさいので削除機能がありません。")) return;
+
+    const now = new Date();
+
+    const newPost: Post = {
+      id: now.getTime().toString(),
+      input: textareaRef.current?.value as never,
+      column: columnSelectRef.current?.value as never,
+      converted: converted,
+      createdAt: now,
+    };
+
+    addPost(newPost);
 
     // DBに保存する
     const { error } = await createConvertedPost(new FormData(event.currentTarget));
