@@ -14,6 +14,7 @@ export const ConvertJaSyllabaryColumn = () => {
   const columnSelectRef = useRef<HTMLSelectElement | null>(null);
   const [converted, setConverted] = useState<string>("");
   const { addPost } = useOptimisticPosts();
+  const [isPending, setIsPending] = useState<boolean>(false);
 
   // errorがsetされたらErrorBoundaryに渡す
   const [error, setError] = useState<Error | null>(null);
@@ -26,6 +27,8 @@ export const ConvertJaSyllabaryColumn = () => {
     event.preventDefault();
 
     if (!confirm("投稿しますか？\nめんどくさいので削除機能がありません。")) return;
+
+    setIsPending(true);
 
     const now = new Date();
 
@@ -59,6 +62,8 @@ export const ConvertJaSyllabaryColumn = () => {
     textareaRef.current!.style.height = "auto";
     // onChangeが発火しないので手動で変換結果をリセット
     setConverted("");
+
+    setIsPending(false);
   };
 
   return (
@@ -148,7 +153,11 @@ export const ConvertJaSyllabaryColumn = () => {
             >
               𝕏で共有
             </ExternalLink>
-            <button type="submit" className="flex-auto rounded-md border-2 border-black px-8 py-2">
+            <button
+              type="submit"
+              className={`flex-auto rounded-md border-2 border-black px-8 py-2 ${isPending ? "cursor-wait" : ""}`}
+              disabled={isPending}
+            >
               投稿
             </button>
           </div>
