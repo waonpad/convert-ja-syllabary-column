@@ -2,6 +2,8 @@ import { serverEnv } from "@/config/env/server";
 import { revalidatePath, revalidateTag } from "next/cache";
 import { type NextRequest, NextResponse } from "next/server";
 
+export const dynamic = "force-dynamic";
+
 /**
  * https://nextjs.org/docs/app/api-reference/functions/revalidatePath
  *
