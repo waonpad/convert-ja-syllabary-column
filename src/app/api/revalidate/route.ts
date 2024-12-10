@@ -6,6 +6,8 @@ import { type NextRequest, NextResponse } from "next/server";
  * https://nextjs.org/docs/app/api-reference/functions/revalidatePath
  *
  * https://vercel.com/docs/cron-jobs/manage-cron-jobs
+ *
+ * TODO: Vercelにデプロイするとrevalidateが効かないので何か調べる
  */
 export const GET = async (request: NextRequest) => {
   if (serverEnv.APP_ENV === "production") {
