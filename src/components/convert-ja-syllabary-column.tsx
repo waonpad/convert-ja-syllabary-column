@@ -103,6 +103,8 @@ export const ConvertJaSyllabaryColumn = () => {
             onKeyDown={(event) => {
               // sift + enterでsubmit
               if (event.key === "Enter" && event.shiftKey) {
+                event.preventDefault();
+
                 event.currentTarget.form?.requestSubmit();
               }
             }}
