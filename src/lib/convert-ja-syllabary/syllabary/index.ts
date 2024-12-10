@@ -69,9 +69,46 @@ const CONVERTIBLE_JA_KATAKANA_SYLLABARY = [
   ["ャ", "ィ", "ュ", "ェ", "ョ"],
 ] as const satisfies string[][];
 
+const CONVERTIBLE_JA_HALF_KATAKANA_SYLLABARY = [
+  /**
+   * 清音
+   */
+  ["ｱ", "ｲ", "ｳ", "ｴ", "ｵ"],
+  ["ｶ", "ｷ", "ｸ", "ｹ", "ｺ"],
+  ["ｻ", "ｼ", "ｽ", "ｾ", "ｿ"],
+  ["ﾀ", "ﾁ", "ﾂ", "ﾃ", "ﾄ"],
+  ["ﾅ", "ﾆ", "ﾇ", "ﾈ", "ﾉ"],
+  ["ﾊ", "ﾋ", "ﾌ", "ﾍ", "ﾎ"],
+  ["ﾏ", "ﾐ", "ﾑ", "ﾒ", "ﾓ"],
+  ["ﾔ", "ｲ", "ﾕ", "ｴ", "ﾖ"],
+  ["ﾗ", "ﾘ", "ﾙ", "ﾚ", "ﾛ"],
+  ["ﾜ", "ヰ", "ｳ", "ヱ", "ｦ"],
+  // ン は変換対象外
+  /**
+   * 濁音
+   */
+  ["ｱﾞ", "ｲﾞ", "ｳﾞ", "ｴﾞ", "ｵﾞ"],
+  ["ｶﾞ", "ｷﾞ", "ｸﾞ", "ｹﾞ", "ｺﾞ"],
+  ["ｻﾞ", "ｼﾞ", "ｽﾞ", "ｾﾞ", "ｿﾞ"],
+  ["ﾀﾞ", "ﾁﾞ", "ﾂﾞ", "ﾃﾞ", "ﾄﾞ"],
+  ["ﾊﾞ", "ﾋﾞ", "ﾌﾞ", "ﾍﾞ", "ﾎﾞ"],
+  /**
+   * 半濁音
+   */
+  ["ﾊﾟ", "ﾋﾟ", "ﾌﾟ", "ﾍﾟ", "ﾎﾟ"],
+  /**
+   * 小文字
+   */
+  ["ｧ", "ｨ", "ｩ", "ｪ", "ｫ"],
+  // ヵ, ヶ は変換対象外
+  // ッ
+  ["ｬ", "ｨ", "ｭ", "ｪ", "ｮ"],
+] as const satisfies string[][];
+
 export const CONVERTIBLE_JA_SYLLABARY = [
   ...CONVERTIBLE_JA_HIRAGANA_SYLLABARY,
   ...CONVERTIBLE_JA_KATAKANA_SYLLABARY,
+  ...CONVERTIBLE_JA_HALF_KATAKANA_SYLLABARY,
 ] as const satisfies string[][];
 
 export type ConvertibleJaCharacter = (typeof CONVERTIBLE_JA_SYLLABARY)[number][number];
