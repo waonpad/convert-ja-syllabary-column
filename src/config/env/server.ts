@@ -11,6 +11,12 @@ export const serverEnv = createEnv({
      * データベースのURL
      */
     DATABASE_URL: z.string(),
+    /**
+     * Cronジョブのシークレット
+     */
+    ...(process.env.APP_ENV === "production" && {
+      CRON_SECRET: z.string().min(1),
+    }),
   },
   experimental__runtimeEnv: {},
 });
